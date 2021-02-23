@@ -1,19 +1,36 @@
 package CucumberJava.steps;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class LoginSteps {
+	
+	WebDriver driver;
+		
+	@Before()
+	public void setup () {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arend\\Documents\\Techgrounds\\Webdevelopment\\Techground_webdevelopment\\Testerspad\\Udemy Course\\SeleniumWebDriverCourser\\CucumberJava\\src\\test\\java\\CucumberJava\\resources\\geckodriver.exe");
+		this.driver = new ChromeDriver();
+		this.driver.manage().window().maximize();
+		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);		
+	}
+	
 	@Given("^User navigates to stackoverflow website$")
 	public void user_navigates_to_stackoverflow_website() throws Throwable {
-		System.out.println("user_navigates_to_stackoverflow_website");
+		driver.get("https://stackoverflow.com/");
 	}
 
 	@Given("^User clicks on the login button on homepage$")
 	public void user_clicks_on_the_login_button_on_homepage() throws Throwable {
-		System.out.println("user_clicks_on_the_login_button_on_homepage");
-
+		driver.findElement(By.xpath("//a[contains(text(), 'Log in')]")).click();
 	}
 
 	@Given("^User enters a correct username$")
