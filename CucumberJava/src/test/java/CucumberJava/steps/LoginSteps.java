@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -17,7 +16,7 @@ public class LoginSteps {
 		
 	@Before()
 	public void setup () {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arend\\Documents\\Techgrounds\\Webdevelopment\\Techground_webdevelopment\\Testerspad\\Udemy Course\\SeleniumWebDriverCourser\\CucumberJava\\src\\test\\java\\CucumberJava\\resources\\geckodriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arend\\Documents\\Techgrounds\\Webdevelopment\\Techground_webdevelopment\\Testerspad\\Udemy Course\\SeleniumWebDriverCourser\\CucumberJava\\src\\test\\java\\CucumberJava\\resources\\chromedriver.exe");
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);		
