@@ -41,6 +41,7 @@ public class LoginSteps {
 
 	@Given("^User enters a correct password$")
 	public void user_enters_a_correct_password() throws Throwable {
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("59iWwy,ra/L&JTx");
 	}
 	
